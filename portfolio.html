@@ -214,6 +214,46 @@ footer { padding: 32px; text-align: center; font-size: 10px; color: var(--fg-dim
 @keyframes scan { 0% { transform: translateY(-20vh); } 100% { transform: translateY(120vh); } }
 .scanline { position: fixed; left: 0; right: 0; height: 140px; background: linear-gradient(180deg, transparent, rgba(255, 92, 0, 0.025) 50%, transparent); pointer-events: none; z-index: 3; animation: scan 9s linear infinite; }
 
+/* PAGE NAV */
+.page-nav { position: sticky; top: 45px; z-index: 9; background: rgba(10,11,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--divider); }
+.page-nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; gap: 28px; overflow-x: auto; scrollbar-width: none; }
+.page-nav-inner::-webkit-scrollbar { display: none; }
+.page-nav a { color: var(--fg-muted); text-decoration: none; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; padding: 16px 0; border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; }
+.page-nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* HERO QUOTE */
+.hero-quote { margin-top: 48px; padding: 28px 32px; border-left: 3px solid var(--accent); background: var(--bg-card); font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.55; color: var(--fg); max-width: 760px; }
+.hero-quote cite { display: block; margin-top: 14px; font-style: normal; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fg-muted); }
+
+/* GOALS GRID */
+.goals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+.goal-card { background: var(--bg-card); border: 1px solid var(--divider); padding: 28px 24px; position: relative; }
+.goal-card::before { content: ''; position: absolute; left: 0; top: 0; height: 3px; width: 40px; background: var(--accent); }
+.goal-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 14px; font-weight: 500; }
+.goal-card h4 { font-family: var(--serif); font-size: 19px; font-weight: 400; line-height: 1.25; margin-bottom: 14px; letter-spacing: -0.01em; color: var(--fg); }
+.goal-card p { font-size: 13px; line-height: 1.65; color: var(--fg); }
+
+/* COURSE GRID */
+.course-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 32px 0 40px; }
+.course-card { background: var(--bg-card); border: 1px solid var(--divider); padding: 24px; }
+.course-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 12px; font-weight: 500; }
+.course-card h4 { font-family: var(--serif); font-size: 20px; font-weight: 400; margin-bottom: 12px; letter-spacing: -0.01em; }
+.course-card p { font-size: 13px; line-height: 1.65; color: var(--fg); }
+.course-link { display: inline-block; margin-top: 14px; color: var(--accent); text-decoration: none; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; border-bottom: 1px dashed var(--accent-line); padding-bottom: 2px; }
+.course-link:hover { border-bottom-style: solid; }
+.course-meta { background: var(--bg-card); border: 1px solid var(--divider); padding: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; }
+
+/* PROJECT DIVIDER */
+.project-divider { background: linear-gradient(180deg, transparent, rgba(255,92,0,0.04), transparent); border-top: 1px solid var(--accent-line); border-bottom: 1px solid var(--accent-line); }
+.project-divider .section-heading em { font-style: italic; color: var(--accent); font-weight: 400; }
+
+/* REFLECTION */
+.reflection-essay { background: var(--bg-card); border: 1px solid var(--divider); padding: 40px; margin-top: 32px; }
+.reflection-essay h4 { font-family: var(--serif); font-size: 22px; font-weight: 400; margin-bottom: 14px; letter-spacing: -0.01em; color: var(--accent); }
+.reflection-essay h4:not(:first-child) { margin-top: 28px; }
+.reflection-essay p { font-size: 15px; line-height: 1.75; color: var(--fg); }
+.reflection-meta { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--divider); margin-bottom: 24px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fg-muted); }
+
 @media (max-width: 768px) {
   .status-bar { padding: 12px 16px; font-size: 9px; }
   .status-bar .hide-mobile { display: none; }
@@ -232,6 +272,12 @@ footer { padding: 32px; text-align: center; font-size: 10px; color: var(--fg-dim
   .project-meta { padding: 20px; gap: 16px; }
   .data-table, .bom-table { font-size: 11px; }
   .data-table th, .data-table td, .bom-table th, .bom-table td { padding: 10px 8px; }
+  .page-nav-inner { padding: 0 16px; gap: 18px; }
+  .page-nav a { padding: 12px 0; font-size: 10px; letter-spacing: 0.15em; }
+  .goals-grid, .course-grid { grid-template-columns: 1fr; gap: 12px; }
+  .hero-quote { padding: 20px 22px; font-size: 16px; }
+  .reflection-essay { padding: 24px; }
+  .reflection-essay h4 { font-size: 19px; }
 }
 
 ::selection { background: var(--accent); color: var(--bg); }
@@ -257,26 +303,200 @@ footer { padding: 32px; text-align: center; font-size: 10px; color: var(--fg-dim
 
 <main>
 
+<nav class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#about">About</a>
+    <a href="#goals">Goals</a>
+    <a href="#course">Course</a>
+    <a href="#project">Project</a>
+    <a href="#reflection">Reflection</a>
+  </div>
+</nav>
+
 <section class="hero">
   <div class="container">
     <div class="hero-meta reveal reveal-1">
-      <span>[00] // PROJECT PORTFOLIO</span>
+      <span>[00] // EPORTFOLIO</span>
       <span>OLD DOMINION UNIVERSITY</span>
     </div>
-    <div class="hero-course reveal reveal-2">ENGN 108 / THE CAPITALIST</div>
+    <div class="hero-course reveal reveal-2">ENGN 108 / SPRING 2026</div>
     <h1 class="hero-title reveal reveal-3">
-      Engineering<br>
-      <em>Design Project</em>
+      Kwame<br>
+      <em>Asare.</em>
     </h1>
     <p class="hero-sub reveal reveal-4">
-      A ballista-style catapult designed, prototyped, and laser-cut by a team of three. Tested across distance, speed, and accuracy under controlled launch conditions. Kwame Asare, Spring 2026.
+      Mechanical engineering freshman at Old Dominion University. This portfolio documents my work in ENGN 108: who I am, where I am headed, what I learned, and what I built. The featured project is The Capitalist, a ballista-style catapult my team designed, prototyped, and tested under controlled launch conditions.
     </p>
     <div class="hero-tags reveal reveal-4">
-      <span class="tag">BALLISTA</span>
-      <span class="tag">TEAM OF 3</span>
-      <span class="tag">LASER-CUT BALSA</span>
-      <span class="tag">26.6&deg; FIXED ANGLE</span>
-      <span class="tag">CONTROLLED EXPERIMENT</span>
+      <span class="tag">MECHANICAL ENGINEERING</span>
+      <span class="tag">FRESHMAN</span>
+      <span class="tag">SPRING 2026</span>
+      <span class="tag">EXPLORING ENGINEERING</span>
+    </div>
+  </div>
+</section>
+
+<!-- A1 ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">[A1] // ABOUT</div>
+    <h2 class="section-heading">Who I am.</h2>
+    <div class="section-body">
+      <p>I am Kwame Asare, a mechanical engineering freshman at Old Dominion University. I have been ambitious as long as I can remember. From a young age I knew I wanted to be a pillar of generational wealth for my family, and I committed early to whatever path would take me there. If it would be hard it would have to be, I would endure. That is the foundation everything else is built on.</p>
+
+      <p>What pulled me specifically into engineering was watching the rise of AI. As more roles get automated, mechanical engineering stands out as a field that combines hands-on, physical problem-solving with disciplines AI cannot easily replace. It is also the field positioned to integrate AI into actual systems, hardware, manufacturing, autonomous machines, when the technology matures. That is the work I want to do.</p>
+
+      <p>Outside the classroom I am active in several student organizations at ODU. I am Treasurer of SUMMIT, where I attend meetings at least twice a week and recently co-facilitated a general body meeting on Pan-African intellectual history as one of the first freshmen to hold that role. I am an Officer in the Ghana Student Association (GSA) and a Representative for the College of Business. I am also a regular at DMC and a member of NSBE. The throughline across all of them is intentional community and access to people who are operating at a higher level than where I am right now.</p>
+
+      <p>My operating philosophy is simple: leverage over labor. I do not want a salary tied to how many hours I rent out. I want to build systems, products, and assets that generate income without requiring my time. Engineering is the foundation. Business and AI integration are the multipliers. Everything I do, in school, in training, in the orgs I am part of, is structured around that goal.</p>
+    </div>
+
+    <blockquote class="hero-quote">
+      Time spent in planning compounds. Time skipped in planning shows up later as a snapped arm, a bent track, or a launch that misses by ten feet.
+      <cite>&mdash; from my catapult reflection</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- A2 GOALS -->
+<section id="goals">
+  <div class="container">
+    <div class="section-label">[A2] // GOALS</div>
+    <h2 class="section-heading">Where I am headed.</h2>
+    <div class="section-body">
+      <p>Six goals split between this year and the long horizon. Each is concrete, each ties to a specific action, and each is honest about why it matters.</p>
+    </div>
+
+    <h3 class="subhead">First-Year Goals</h3>
+    <div class="goals-grid">
+
+      <div class="goal-card">
+        <div class="goal-num">01</div>
+        <h4>Complete one full Python project this summer</h4>
+        <p>I am dedicating summer 2026 to learning Python with the goal of deploying a real working project, an automation tool, a small web app, or an AI-integrated script. This is the technical foundation I need before targeting AI-related internships and the kind of engineering work I want to do long-term. Concrete output: one project I can show, not just tutorials I completed.</p>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-num">02</div>
+        <h4>Hold meaningful leadership across SUMMIT, GSA, and the College of Business</h4>
+        <p>I am already Treasurer of SUMMIT, an Officer in the Ghana Student Association, and a Representative for the College of Business. The goal this year is not to add titles but to actually deliver in those roles, helping run events, building the network, and using these positions as a launchpad for the people and opportunities they unlock. SUMMIT in particular is where I am putting the most weight.</p>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-num">03</div>
+        <h4>Land a Summer 2026 engineering internship</h4>
+        <p>Targets include MITRE, energy companies, and AI-related engineering roles. The application work starts now: building a credible LinkedIn presence, refining my resume around real engineering work like this catapult project, and applying broadly. The goal is not just any internship, it is a role that aligns with where I want to be in five years.</p>
+      </div>
+
+    </div>
+
+    <h3 class="subhead">Long-Term Goals</h3>
+    <div class="goals-grid">
+
+      <div class="goal-card">
+        <div class="goal-num">04</div>
+        <h4>Graduate with a portfolio of real design work</h4>
+        <p>Not just coursework grades, but projects I built: the catapult, future CAD assemblies, a senior capstone that solves a real problem. By graduation I want a portfolio that makes me hireable because of what I have actually engineered, not just because I made it through the curriculum.</p>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-num">05</div>
+        <h4>Work on AI-integrated mechanical systems</h4>
+        <p>The intersection of AI and mechanical hardware, autonomous systems, smart manufacturing, robotics, is the space I want to be in. By the time AGI is real, I want to be one of the engineers who can actually build the physical systems that benefit from it. That means deep mechanical fundamentals now, programming skill in parallel, and a career path that puts me in rooms where this work happens.</p>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-num">06</div>
+        <h4>Build leverage, not labor</h4>
+        <p>My ultimate goal is passive income, not a salary. I do not want my earnings tied to how many hours I rent out. Engineering is the foundation, but the long game is building systems, products, and assets that generate income on their own. By the time I am out of school I want a clear path: engineering as the technical engine, business and ownership as the multiplier.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- A3 COURSE -->
+<section id="course">
+  <div class="container">
+    <div class="section-label">[A3] // COURSE</div>
+    <h2 class="section-heading">ENGN 108: Exploring Engineering.</h2>
+    <div class="section-body">
+      <p>ENGN 108 was a hands-on introduction to engineering built around one major project: the catapult. The full semester was structured to take a team of students through the actual engineering design process, from open-ended problem to documented test results. The materials below are what the course produced for me, organized by the engineering competencies they demonstrate.</p>
+    </div>
+
+    <div class="course-grid">
+
+      <div class="course-card">
+        <div class="course-tag">01 / DESIGN PROCESS</div>
+        <h4>Brainstorming &amp; Iteration</h4>
+        <p>Three sketched concepts before committing to a build direction, evaluated against structural longevity, force distribution, and complexity. A formal decision matrix between two structural solutions before the final laser-cut design. Documented in the Project section.</p>
+        <a href="#project" class="course-link">View brainstorming &rarr;</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-tag">02 / ENGINEERING RESEARCH</div>
+        <h4>Catapult Archetype Analysis</h4>
+        <p>Researched four major catapult types (ballista, trebuchet, mangonel, onager). Selected the ballista for its historical precedent in accuracy and repeatable launch geometry. The selection logic is documented as part of the brainstorming process.</p>
+      </div>
+
+      <div class="course-card">
+        <div class="course-tag">03 / TECHNICAL TOOLS</div>
+        <h4>Inkscape &amp; Laser Cutting</h4>
+        <p>First exposure to vector design software (Inkscape) and laser cutter operation. Translated dimensioned sketches into cut-ready vector paths, exported the file, and ran the cut on balsa wood. Documented with the original Inkscape file labeled "THE CAPITALIST".</p>
+        <a href="#project" class="course-link">View design file &rarr;</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-tag">04 / TESTING &amp; DATA</div>
+        <h4>Controlled Test Campaign</h4>
+        <p>Six distance trials (three per projectile) at a fixed 26.6&deg; release angle, plus accuracy trials at 5 ft and 10 ft. Distance, time, and speed recorded per launch. Excel-based analysis with charts and inferences mapped to all five rubric categories: Accuracy, Distance, Speed, Creativity, Weight.</p>
+        <a href="#project" class="course-link">View test data &rarr;</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-tag">05 / TEAMWORK</div>
+        <h4>Three-Person Team Collaboration</h4>
+        <p>Worked with Phillip Mitchell and Colton across the full project. Ownership was divided naturally: concept direction (Colton), design and component fabrication (Phillip), execution and assembly (Kwame). Documented with reflection on what worked and what would change.</p>
+        <a href="#project" class="course-link">View team breakdown &rarr;</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-tag">06 / REFLECTION</div>
+        <h4>Course Reflection</h4>
+        <p>A 487-word reflection on what I learned about myself as a learner, which course skills will help me most going forward, how the design project shaped my understanding of engineering, and what mindsets I am carrying into future semesters.</p>
+        <a href="#reflection" class="course-link">View reflection &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="course-meta">
+      <div class="meta-item">
+        <div class="meta-label">COURSE</div>
+        <div class="meta-value">ENGN 108: Exploring Engineering</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">SEMESTER</div>
+        <div class="meta-value">Spring 2026</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">INSTITUTION</div>
+        <div class="meta-value">Old Dominion University</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">MAJOR</div>
+        <div class="meta-value">Mechanical Engineering</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT DIVIDER -->
+<section id="project" class="project-divider">
+  <div class="container">
+    <div class="section-label">[A4] // PROJECT</div>
+    <h2 class="section-heading">The Capitalist.<br><em>The featured design project.</em></h2>
+    <div class="section-body">
+      <p>The featured artifact of this portfolio is The Capitalist, a ballista-style catapult designed by a team of three: Kwame Asare, Phillip Mitchell, and Colton. The project moved through brainstorming, prototyping, vector design, laser cutting, assembly, and a measured test campaign. The full documentation follows below across fifteen sections.</p>
     </div>
   </div>
 </section>
@@ -893,6 +1113,36 @@ footer { padding: 32px; text-align: center; font-size: 10px; color: var(--fg-dim
         <h5>What We&rsquo;d Change</h5>
         <p>Communication and uneven workload distribution at certain points. Future projects need a clear team lead and a contingency plan, and the experience of working through the shortcomings is what made the project valuable.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- A5 REFLECTION -->
+<section id="reflection">
+  <div class="container">
+    <div class="section-label">[A5] // REFLECTION</div>
+    <h2 class="section-heading">What I learned.</h2>
+    <div class="section-body">
+      <p>A reflection on what this course and project taught me about myself, my work, and where I am headed.</p>
+    </div>
+
+    <div class="reflection-essay">
+      <div class="reflection-meta">
+        <span>WORD COUNT: 487</span>
+        <span>ENGN 108 / SPRING 2026</span>
+      </div>
+
+      <h4>What I learned about myself as a learner and future engineer</h4>
+      <p>ENGN 108 forced me to see that I learn best when I can see the physical consequence of a decision. Sitting in lectures and taking notes is passive. Building something, testing it, and watching it fail teaches me. When the cardboard catapult's track bent under load I did not just understand the concept of load paths in the abstract, I felt it. That experience compressed six months of statics theory into one afternoon. It also showed me that I am impatient with ambiguity. I want to move to execution fast. That is useful, it keeps projects moving, but it is a liability if I skip the planning phase. The catapult project forced me to slow down and sketch before building, and the results were measurably better. I am taking that lesson forward.</p>
+
+      <h4>How this course will help most</h4>
+      <p>The single skill I am carrying out of ENGN 108 is documenting my design process in real time. On the catapult we sometimes had to reconstruct decisions from memory, and that wasted time and lost detail. For my next project I am keeping a design log. Every decision, every test, every failure gets written down immediately. It is boring but it compounds. In my internship work and my capstone that discipline will save me weeks. Beyond the skill, this course taught me that first-year engineering matters. I know students who check out freshman year and coast. They get to junior year and realize they are behind. I am treating ENGN 108 not as a one-off requirement but as the foundation for how I approach every design problem going forward.</p>
+
+      <h4>How the catapult project shaped my understanding</h4>
+      <p>The catapult was not just a physics problem or a crafting exercise. It was a lesson in constraints and trade-offs. We could not have a catapult that was perfect on distance, accuracy, speed, and creativity simultaneously. We had to choose. We chose accuracy and distance at the expense of innovation. That is the real work of engineering: not finding the perfect solution, but understanding what you are trading off. That mindset is everywhere. CAD, manufacturing, team dynamics, time management. Every decision costs something else.</p>
+
+      <h4>What I am carrying forward</h4>
+      <p>I am carrying two things. First, discipline beats talent. The team that communicates, plans, and iterates wins. The team that just builds will not. Second, the unambiguous feedback of testing. In school a grade is subjective. In engineering, gravity is honest. That is what I love about this field, and it is what I am building toward. This portfolio represents a student who is serious about the fundamentals, not afraid to fail, and thinking ahead to what comes next.</p>
     </div>
   </div>
 </section>
